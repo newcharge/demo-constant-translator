@@ -1,7 +1,5 @@
 package net.newcharge;
 
-import javafx.util.Pair;
-
 import java.util.*;
 
 public class ConstantTranslator {
@@ -46,11 +44,9 @@ public class ConstantTranslator {
             table.get(curr).put((char) (numStr + i), next);
     }
 
-    public static Pair<String, Object> translate(String str) {
+    public static Object translate(String str) {
         //懒加载
         Optional.ofNullable(table).orElseGet(ConstantTranslator::init);
-        //标签
-        String tag = "";
         //const
         Object constant;
 
@@ -66,16 +62,9 @@ public class ConstantTranslator {
             loc++;
         }
 
-        //标记为整数
-        if(curr == 2) tag = "int";
-        //标记为小数
-        if(curr == 4) tag = "real";
-        //标记为e指数
-        if(curr == 7) tag = "e_real";
-
         //计算常数值
         constant = FACTOR.calculate();
 
-        return new Pair<>(tag, constant);
+        return constant;
     }
 }

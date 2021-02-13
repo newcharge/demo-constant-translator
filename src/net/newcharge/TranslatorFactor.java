@@ -16,7 +16,7 @@ public class TranslatorFactor {
     private int f = 1;  //尾数符号，只能为1或-1
     private int t = 0;  //类型变量，整形为0，实型为1
 
-    private static final TranslatorFactor factor = new TranslatorFactor();
+    private static final TranslatorFactor FACTOR = new TranslatorFactor();
 
     private TranslatorFactor() {
         init();
@@ -43,12 +43,12 @@ public class TranslatorFactor {
     }
 
     public Object calculate() {
-        Object obj;
+        Object constant;
 
-        if(t == 0)  obj = f * n;
-        else obj = f * n * Math.pow(10, e * p - m);
+        if(t == 0)  constant = f * n;
+        else constant = f * n * Math.pow(10, e * p - m);
 
-        return obj;
+        return constant;
     }
 
     public void execute(Integer i, Character ch) {
@@ -56,14 +56,14 @@ public class TranslatorFactor {
     }
 
     public static TranslatorFactor get() {
-        factor.setN(0);
-        factor.setP(0);
-        factor.setM(0);
-        factor.setE(1);
-        factor.setF(1);
-        factor.setT(0);
+        FACTOR.setN(0);
+        FACTOR.setP(0);
+        FACTOR.setM(0);
+        FACTOR.setE(1);
+        FACTOR.setF(1);
+        FACTOR.setT(0);
 
-        return factor;
+        return FACTOR;
     }
 
     //getters and setters

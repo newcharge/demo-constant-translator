@@ -1,4 +1,4 @@
-package com.newcharge;
+package net.newcharge;
 
 import javafx.util.Pair;
 

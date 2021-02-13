@@ -1,4 +1,4 @@
-package com.newcharge;
+package net.newcharge;
 
 import java.util.HashMap;
 import java.util.Map;
